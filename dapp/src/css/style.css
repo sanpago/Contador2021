@@ -41,3 +41,27 @@ appCounter {
     margin: 10px;
 }
 
+.appCounter-control-updating {
+    display: block;
+    font-size: smaller;
+    color: darkblue;
+    padding-left: 15px;
+}
+
+.appCounter-control-error {
+    display: block;
+    font-size: smaller;
+    color: red;
+    padding-left: 15px;
+}
+
+.button-common {
+    color: blue;
+}
+
+.button-common:disabled {
+    color: lightgrey;
+}
+
+.info-common {
+}
