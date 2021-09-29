@@ -1,0 +1,19 @@
+{
+  "name": "2021.2-contador",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@truffle/contract": "^4.3.35",
+    "create-react-app": "^4.0.3",
+    "serve": "^12.0.1",
+    "truffle": "^5.4.11",
+    "web3": "^1.5.3"
+  }
+}
