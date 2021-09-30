@@ -18,7 +18,7 @@ function App() {
 
     return (
         <main className="appCounter">
-            <AppHeader/>
+            <AppHeader />
             <AppData/>
             <AppControl/>
         </main>

@@ -20,6 +20,11 @@ appCounter {
     right: 10px;
 }
 
+.appCounter-header-account {
+    font-size: x-small;
+    color: lightblue;
+}
+
 .appCounter-data {
     color: darkgreen;
     border: 1px solid green;

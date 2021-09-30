@@ -6,24 +6,16 @@ import Error from './common/Info';
 import IncrControl from './common/Button';
 import CleanState from './common/Button';
 
+import { newContextComponents } from "@drizzle/react-components";
+const { ContractForm } = newContextComponents;
+
 const {useDrizzle, useDrizzleState} = drizzleReactHooks;
 
 const AppControl = () => {
     const {drizzle} = useDrizzle();
     const drizzleState = useDrizzleState(state => state);
 
-    const [stackId, setStackID] = useState(null)
-
-    const increment = () => {
-        // Usar cacheSend para lanzar una transaccion que
-        // ejecutara el metodo  incr del contrato inteligente.
-        const stackId = drizzle.contracts.Contador.methods.incr.cacheSend({
-            from: drizzleState.accounts[0]
-        });
-
-        // Guardar stackId en el estado local
-        setStackID(stackId);
-    }
+    const [stackId, setStackID] = useState(null);
 
     const cleanState = () => {
         setStackID(null);
@@ -54,10 +46,23 @@ const AppControl = () => {
 
     return (
         <div className="appCounter-control">
-            <IncrControl className="appCounter-control-incr"
-                         text="Incrementar"
-                         onClick={increment}
-                         disabled={status === 'pending'}/>
+            <ContractForm
+                drizzle={drizzle}
+                drizzleState={drizzleState}
+                contract={"Contador"}
+                method={"incr"}
+                methodArgs={[
+                    { from: drizzleState.accounts[0] }
+                ]}
+                render={({inputs, inputTypes, state, handleInputChange, handleSubmit}) => (
+                    <IncrControl className="appCounter-control-incr"
+                                 text="Incrementar"
+                                 onClick={(ev) => {
+                                     const stackId = handleSubmit(ev);
+                                     // Guardar stackId en el estado local
+                                     setStackID(stackId);
+                                 }}
+                                 disabled={status === 'pending'} /> )} />
             <Updating className="appCounter-control-updating"
                       msg={status}
                       visible={true}/>
