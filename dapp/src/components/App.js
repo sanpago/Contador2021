@@ -1,27 +1,18 @@
-import {drizzleReactHooks} from '@drizzle/react-plugin'
 
+import AppLoading from './AppLoading';
 import AppHeader from './AppHeader';
 import AppData from './AppData';
 import AppControl from './AppControl';
 
-const {useDrizzleState} = drizzleReactHooks;
-
 function App() {
-
-    const initialized = useDrizzleState(state => state.drizzleStatus.initialized);
-
-    if (!initialized) {
-        return (
-            <main><h1>⚙️ Cargando dapp...</h1></main>
-        );
-    }
-
     return (
-        <main className="appCounter">
-            <AppHeader />
-            <AppData/>
-            <AppControl/>
-        </main>
+        <AppLoading>
+            <main className="appCounter">
+                <AppHeader/>
+                <AppData/>
+                <AppControl/>
+            </main>
+        </AppLoading>
     );
 }
 
