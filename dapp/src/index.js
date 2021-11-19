@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { DrizzleContext } from "@drizzle/react-plugin";
+import { drizzleReactHooks } from '@drizzle/react-plugin'
 
 import drizzle from "./drizzle";
 
@@ -11,9 +11,9 @@ import App from './components/App';
 
 ReactDOM.render(
     <React.StrictMode>
-        <DrizzleContext.Provider drizzle={drizzle}>
+        <drizzleReactHooks.DrizzleProvider drizzle={drizzle}>
             <App />
-        </DrizzleContext.Provider>
+        </drizzleReactHooks.DrizzleProvider>
     </React.StrictMode>
     ,
     document.getElementById('root')

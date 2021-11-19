@@ -1,12 +1,16 @@
-import {useState} from "react"
+import {useState} from "react";
+import {drizzleReactHooks} from '@drizzle/react-plugin';
 
 import Updating from './common/Info';
 import Error from './common/Info';
 import IncrControl from './common/Button';
 import CleanState from './common/Button';
 
-const AppControl = props => {
-    const {drizzle, drizzleState} = props
+const {useDrizzle, useDrizzleState} = drizzleReactHooks;
+
+const AppControl = () => {
+    const {drizzle} = useDrizzle();
+    const drizzleState = useDrizzleState(state => state);
 
     const [stackId, setStackID] = useState(null)
 

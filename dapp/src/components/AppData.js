@@ -1,7 +1,11 @@
-import { useState, useEffect } from "react"
+import {useState, useEffect} from "react";
+import {drizzleReactHooks} from '@drizzle/react-plugin';
 
-const AppData = props => {
-    const { drizzle, drizzleState } = props;
+const {useDrizzle, useDrizzleState} = drizzleReactHooks;
+
+const AppData = () => {
+    const {drizzle} = useDrizzle();
+    const drizzleState = useDrizzleState(state => state);
 
     const [valorKey, setValorKey] = useState(null);
 
