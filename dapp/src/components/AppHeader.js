@@ -5,7 +5,7 @@ const AppHeader = () => (
             Contador
         </h1>
         <p className="appCounter-header-version">
-            Versión: 3
+            Versión: 4.2
         </p>
     </div>
 );
